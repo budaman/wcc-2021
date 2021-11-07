@@ -1,0 +1,10 @@
+.container {
+  margin-top: 45px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cardContainer {
+  margin: 15px;
+}

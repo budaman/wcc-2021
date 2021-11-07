@@ -1,35 +1,15 @@
-import "./styles.css";
-import { loader } from "graphql.macro";
-import { useQuery } from "@apollo/client";
+import styles from "./styles.module.css";
 
-const GET_ANIMALS_QUERY = loader("../../graphql/queries/animal-list.graphql");
+import AnimalList from "../AnimalList";
+import Header from "../Header";
 
-function App() {
-  const { loading, data, error } = useQuery(GET_ANIMALS_QUERY);
-
-  if (loading) {
-    return <h2>Loading....</h2>;
-  }
-
-  if (error) {
-    return <h2>Opppps.... Something went wrong</h2>;
-  }
-
+const App = () => {
   return (
-    <div className="container">
-      {data.animals?.edges.map((animal) => (
-        <div key={animal.node.id}>
-          <p>{animal.node.name}</p>
-          <img
-            src={
-              animal.node.imageUrl ||
-              "https://i.insider.com/5ebbfc9ffc593d729d60df73?width=1136&format=jpeg"
-            }
-          />
-        </div>
-      ))}
+    <div className={styles.container}>
+      <Header />
+      <AnimalList />
     </div>
   );
-}
+};
 
 export default App;
