@@ -1,0 +1,12 @@
+query GetAnimalList {
+  animals {
+    edges {
+      cursor
+      node {
+        id
+        imageUrl
+        name
+      }
+    }
+  }
+}
