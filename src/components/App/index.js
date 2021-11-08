@@ -1,14 +1,20 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import styles from "./styles.module.css";
 
 import AnimalList from "../AnimalList";
-import Header from "../Header";
+import AnimalProfile from "../AnimalProfile";
 
 const App = () => {
   return (
-    <div className={styles.container}>
-      <Header />
-      <AnimalList />
-    </div>
+    <Router>
+      <div className={styles.container}>
+        <Routes>
+          <Route path="/" element={<AnimalList />} />
+          <Route path="/animal/:id" element={<AnimalProfile />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

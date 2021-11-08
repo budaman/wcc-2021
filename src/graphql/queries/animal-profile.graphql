@@ -1,0 +1,29 @@
+query GetAnimal($id: Int!) {
+  animal(id: $id) {
+    id
+    name
+    details {
+      gender {
+        value
+      }
+      color {
+        id
+        value
+      }
+      birthDate
+      weight
+      allergy
+      food
+      breed {
+        id
+        value
+      }
+      species {
+        id
+        value
+      }
+    }
+    imageUrl
+    comments
+  }
+}
