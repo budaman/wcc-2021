@@ -22,7 +22,6 @@ const AnimalList = () => {
 
   return (
     <>
-      <Header />
       {loading ? (
         <h2>Loading....</h2>
       ) : (

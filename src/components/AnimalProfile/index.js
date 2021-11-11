@@ -27,7 +27,6 @@ const AnimalProfile = () => {
 
   return (
     <>
-      <Header back />
       <div className={styles.container}>
         <Card
           sx={{ width: 600 }}
