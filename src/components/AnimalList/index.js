@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-
-import Header from "../Header";
+import LinearProgress from "@mui/material/LinearProgress";
 
 import styles from "./styles.module.css";
 
@@ -22,9 +21,9 @@ const AnimalList = () => {
 
   return (
     <>
-      {loading ? (
-        <h2>Loading....</h2>
-      ) : (
+      {loading ? 
+        <LinearProgress color="primary" />
+       : 
         <div className={styles.container}>
           {data.animals?.edges.map((animal) => (
             <Link key={animal.node.id} to={`animal/${animal.node.id}`}>
@@ -44,8 +43,7 @@ const AnimalList = () => {
               </Card>
             </Link>
           ))}
-        </div>
-      )}
+        </div>}
     </>
   );
 };
