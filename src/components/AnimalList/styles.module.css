@@ -1,5 +1,5 @@
 .container {
-  margin-top: 45px;
+  margin-top: 15px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -14,4 +14,11 @@
   color: orange;
   transform: scale(1.05);
   transition: transform 0.15s ease-in-out;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
