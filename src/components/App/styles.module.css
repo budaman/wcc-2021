@@ -1,8 +1,8 @@
 .container {
   text-align: center;
-  font-size: 32px;
+  font-size: 26px;
   font-weight: bold;
-  height: 100vh;
+  min-height: 100vh;
   background: #50c9c3; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
