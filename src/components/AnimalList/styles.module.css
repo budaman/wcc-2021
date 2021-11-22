@@ -1,4 +1,11 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.animalContainer {
   margin-top: 15px;
   display: flex;
   flex-wrap: wrap;
@@ -14,11 +21,4 @@
   color: orange;
   transform: scale(1.05);
   transition: transform 0.15s ease-in-out;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
