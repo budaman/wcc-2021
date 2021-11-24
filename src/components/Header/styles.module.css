@@ -1,0 +1,16 @@
+div .root {
+  height: 64px;
+  background-color: #006d77;
+}
+
+div .container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navItem {
+  color: #fff;
+  margin: 0 16px;
+  text-decoration: none;
+}
