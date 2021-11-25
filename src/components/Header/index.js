@@ -1,6 +1,5 @@
 import styles from "./styles.module.css";
-import Toolbar from "@mui/material/Toolbar";
-import { AppBar, Container } from "@mui/material";
+import { AppBar, Container, Toolbar } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
 const Header = () => (

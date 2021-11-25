@@ -2,12 +2,10 @@ import { useState } from "react";
 import { loader } from "graphql.macro";
 import { useQuery } from "@apollo/client";
 
-import { LinearProgress, TextField } from "@mui/material";
+import { LinearProgress } from "@mui/material";
 
 import AnimalCard from "../AnimalCard";
-
-import SearchIcon from "@mui/icons-material/Search";
-import CloseIcon from "@mui/icons-material/Close";
+import Search from "../Search";
 
 import styles from "./styles.module.css";
 
@@ -34,28 +32,7 @@ const AnimalList = () => {
 
   return (
     <div className={styles.container}>
-      <TextField
-        value={searchValue}
-        placeholder={"Search"}
-        onChange={(e) => {
-          setSearchValue(e.target.value);
-        }}
-        InputProps={{
-          startAdornment: <SearchIcon />,
-          endAdornment: searchValue && (
-            <CloseIcon
-              onClick={() => {
-                setSearchValue("");
-              }}
-            />
-          ),
-        }}
-        margin="normal"
-        sx={{
-          width: "80%",
-          margin: "15px 40px",
-        }}
-      />
+      <Search onSearch={setSearchValue} searchValue={searchValue} />
       <div className={styles.animalContainer}>
         {filterAnimals().map((animal) => (
           <AnimalCard
