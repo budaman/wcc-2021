@@ -7,6 +7,8 @@ import { LinearProgress } from "@mui/material";
 import AnimalCard from "../AnimalCard";
 import Search from "../Search";
 
+import { Link } from "react-router-dom";
+
 import styles from "./styles.module.css";
 
 const GET_ANIMALS_QUERY = loader("../../graphql/queries/animal-list.graphql");
@@ -35,13 +37,17 @@ const AnimalList = () => {
       <Search onSearch={setSearchValue} searchValue={searchValue} />
       <div className={styles.animalContainer}>
         {filterAnimals().map((animal) => (
-          <AnimalCard
-            id={animal.node.id}
-            name={animal.node.name}
-            image={animal.node.imageUrl}
-            width={300}
-            height={140}
-          />
+          <Link to={`animal/${animal.node.id}`}>
+            <AnimalCard
+              id={animal.node.id}
+              name={animal.node.name}
+              image={animal.node.imageUrl}
+              width={300}
+              height={140}
+            >
+              <p>{animal.node.name}</p>
+            </AnimalCard>
+          </Link>
         ))}
       </div>
     </div>
