@@ -1,18 +1,20 @@
 import { useParams } from "react-router-dom";
-import styles from "./styles.module.css";
 
 import { loader } from "graphql.macro";
 import { useQuery } from "@apollo/client";
 
-import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import Skeleton from "@mui/material/Skeleton";
-import Stack from "@mui/material/Stack";
+import { Card, CardMedia, CardContent } from "@mui/material";
+
+import SkeletonLoader from "../SkeletonLoader";
+
+import styles from "./styles.module.css";
 
 const GET_ANIMAL_PROFILE = loader(
   "../../graphql/queries/animal-profile.graphql"
 );
+
+const CARD_WIDTH = 600;
+const CARD_HEIGHT = 250;
 
 const AnimalProfile = () => {
   const { id } = useParams();
@@ -23,22 +25,7 @@ const AnimalProfile = () => {
   return (
     <div className={styles.container}>
       {loading ? (
-        <Stack spacing={1}>
-          <Skeleton
-            variant="rectangular"
-            width={600}
-            height={250}
-            animation="wave"
-            sx={{ bgcolor: "yellow.300" }}
-          />
-          <Skeleton
-            variant="rectangular"
-            width={600}
-            height={150}
-            animation="wave"
-            sx={{ bgcolor: "yellow.300" }}
-          />
-        </Stack>
+        <SkeletonLoader width={CARD_WIDTH} height={CARD_HEIGHT} />
       ) : (
         <Card
           sx={{ width: 600 }}
