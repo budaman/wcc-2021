@@ -39,6 +39,8 @@ const AnimalList = () => {
             id={animal.node.id}
             name={animal.node.name}
             image={animal.node.imageUrl}
+            width={300}
+            height={140}
           />
         ))}
       </div>
