@@ -1,30 +1,30 @@
+import { useState } from "react";
 import { loader } from "graphql.macro";
 import { useQuery } from "@apollo/client";
 
 import { Link } from "react-router-dom";
 
-import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import LinearProgress from "@mui/material/LinearProgress";
+import {
+  LinearProgress,
+  Card,
+  CardMedia,
+  CardContent,
+  TextField,
+} from "@mui/material";
 
-import styles from "./styles.module.css";
-import { useEffect, useState } from "react";
-import { TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 
+import styles from "./styles.module.css";
+
 const GET_ANIMALS_QUERY = loader("../../graphql/queries/animal-list.graphql");
+const DEFAULT_ANIMAL_IMAGE =
+  "https://pro2-bar-s3-cdn-cf6.myportfolio.com/c728a553-9706-473c-adca-fa2ea3652db5/729b72ec-104f-4499-9986-0dbaf11ce437_rw_1200.jpg?h=6aea14fe1fe3fd0853669fd14184b6f7";
 
 const AnimalList = () => {
-  const { loading, data, error } = useQuery(GET_ANIMALS_QUERY);
+  const { data, loading, error } = useQuery(GET_ANIMALS_QUERY);
 
-  const [value, setValue] = useState("");
-  const [filteredAnimals, setFilteredAnimals] = useState([]);
-
-  useEffect(() => {
-    setFilteredAnimals(data?.animals?.edges);
-  }, [data]);
+  const [searchValue, setSearchValue] = useState("");
 
   if (error) {
     return <h2>Opppps.... Something went wrong</h2>;
@@ -34,22 +34,26 @@ const AnimalList = () => {
     return <LinearProgress />;
   }
 
+  const filterAnimals = () => {
+    return data?.animals?.edges.filter((animal) =>
+      animal.node.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
+  };
+
   return (
     <div className={styles.container}>
       <TextField
-        value={value}
+        value={searchValue}
         placeholder={"Search"}
         onChange={(e) => {
-          setValue(e.target.value);
-          setFilteredAnimals(filterAnimals(e.target.value));
+          setSearchValue(e.target.value);
         }}
         InputProps={{
           startAdornment: <SearchIcon />,
-          endAdornment: value && (
+          endAdornment: searchValue && (
             <CloseIcon
               onClick={() => {
-                setValue("");
-                setFilteredAnimals(filterAnimals(""));
+                setSearchValue("");
               }}
             />
           ),
@@ -61,17 +65,14 @@ const AnimalList = () => {
         }}
       />
       <div className={styles.animalContainer}>
-        {filteredAnimals?.map((animal) => (
+        {filterAnimals().map((animal) => (
           <Link key={animal.node.id} to={`animal/${animal.node.id}`}>
             <Card sx={{ width: 300 }} className={styles.cardContainer}>
               <CardMedia
                 component="img"
                 alt="green iguana"
                 height="140"
-                image={
-                  animal.node.imageUrl ||
-                  "https://pro2-bar-s3-cdn-cf6.myportfolio.com/c728a553-9706-473c-adca-fa2ea3652db5/729b72ec-104f-4499-9986-0dbaf11ce437_rw_1200.jpg?h=6aea14fe1fe3fd0853669fd14184b6f7"
-                }
+                image={animal.node.imageUrl || DEFAULT_ANIMAL_IMAGE}
               />
               <CardContent>
                 <p>{animal.node.name}</p>
@@ -82,12 +83,6 @@ const AnimalList = () => {
       </div>
     </div>
   );
-
-  function filterAnimals(value) {
-    return data?.animals?.edges.filter((animal) =>
-      animal.node.name.toLowerCase().includes(value.toLowerCase())
-    );
-  }
 };
 
 export default AnimalList;
