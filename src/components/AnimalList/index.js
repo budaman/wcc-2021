@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { loader } from "graphql.macro";
 import { useQuery } from "@apollo/client";
 
 import { LinearProgress } from "@mui/material";
@@ -11,7 +10,7 @@ import { Link } from "react-router-dom";
 
 import styles from "./styles.module.css";
 
-const GET_ANIMALS_QUERY = loader("../../graphql/queries/animal-list.graphql");
+import { GET_ANIMALS_QUERY } from "../../graphql/queries";
 
 const AnimalList = () => {
   const { data, loading, error } = useQuery(GET_ANIMALS_QUERY);

@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 
-import { loader } from "graphql.macro";
 import { useQuery } from "@apollo/client";
 
 import SkeletonLoader from "../SkeletonLoader";
@@ -8,9 +7,7 @@ import AnimalCard from "../AnimalCard";
 
 import styles from "./styles.module.css";
 
-const GET_ANIMAL_PROFILE = loader(
-  "../../graphql/queries/animal-profile.graphql"
-);
+import { GET_ANIMAL_PROFILE } from "../../graphql/queries";
 
 const CARD_WIDTH = 600;
 const CARD_HEIGHT = 250;
