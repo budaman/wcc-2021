@@ -12,6 +12,10 @@ Ir įrašykite į konsolę, kad nueitumėte į ką tik nuklonuotą repozitoriją
 
 ### `cd wcc-2021`
 
+Tuomet pasirinkite reikia pradžios branchą:
+
+### `git checkout start`
+
 ## Reikiamų modulių instaliavimas
 
 Norint paleisti programą turite įrašyti tam reikiamus modulius. Į konsolę įrašykite:
@@ -34,4 +38,3 @@ Norėdami bet kada sustabdyti programos veikimą, konsolėje spauskite `CTRL+C`.
 ## Tolimesni žingsniai
 
 Visus tolimesnius programavimo žingsnius galite rasti [ČIA](https://docs.google.com/document/d/1Ul4DsagA7N6rf1fEZ0GTBdHBnlswHoviqrVjkiIEB8s/edit?usp=sharing)
-
