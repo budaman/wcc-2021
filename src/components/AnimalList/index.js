@@ -37,7 +37,7 @@ const AnimalList = () => {
       <Search onSearch={setSearchValue} searchValue={searchValue} />
       <div className={styles.animalContainer}>
         {filterAnimals().map((animal) => (
-          <Link to={`animal/${animal.node.id}`}>
+          <Link key={animal.node.id} to={`animal/${animal.node.id}`}>
             <AnimalCard
               id={animal.node.id}
               name={animal.node.name}
