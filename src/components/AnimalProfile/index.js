@@ -30,8 +30,8 @@ const AnimalProfile = () => {
           id={data.animal.id}
           name={data.animal.name}
           image={data.animal.imageUrl}
-          width={600}
-          height={250}
+          width={CARD_WIDTH}
+          height={CARD_HEIGHT}
         >
           <p>{data.animal.name}</p>
           <p>{`Breed: ${data.animal.details?.breed?.value}`}</p>
