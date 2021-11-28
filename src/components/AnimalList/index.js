@@ -43,6 +43,7 @@ const AnimalList = () => {
               image={animal.node.imageUrl}
               width={300}
               height={140}
+              className={styles.cardContainer}
             >
               <p>{animal.node.name}</p>
             </AnimalCard>

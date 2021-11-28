@@ -11,3 +11,14 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.cardContainer {
+  margin: 15px;
+  cursor: pointer;
+}
+
+.cardContainer:hover {
+  color: orange;
+  transform: scale(1.05);
+  transition: transform 0.15s ease-in-out;
+}
