@@ -9,6 +9,8 @@
 
 Norėdami dirbti su šia repozitorija lokaliai turite atlikti šiuos žingsnius:
 
+#### Norint dirbti lokaliai jums reikės turėti node14 versiją, jei jos neturite, pasirinkite darbą CodeSandBox platformoje.
+
 ## Repozitorijos klonavimas lokaliai
 
 Atsidarykite konsolę ir įrašykite:
