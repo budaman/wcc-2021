@@ -1,8 +1,15 @@
 # Pasiruošimas projektui
 
+#### Yra du būdai dirbti su wcc-2021 projektu:
+
+<ol>
+  <li>Papraščiausias būdas pasinaudoti CodeSandBox nuoroda https://codesandbox.io/s/wcc-2021-bn20n su kuria gausite visą projekta su reikiamais moduliais jau paruoštą. Privalumas, kad nereikės darytis nustatymu lokaliai. Minusas, kad veiks lėčiau nei lokaliai.</li>
+  <li>Antram būdui reikėtų projektą nuklonuoti, įrašyti modulius ir pasileisti lokaliai. Pliusas yra tas, kad veiks viskas greičiau.</li>
+</ol>
+
 Norėdami dirbti su šia repozitorija lokaliai turite atlikti šiuos žingsnius:
 
-## Repozitorijos klonavimas
+## Repozitorijos klonavimas lokaliai
 
 Atsidarykite konsolę ir įrašykite:
 
